@@ -1,0 +1,375 @@
+<h1>Cadastrar Laudo</h1>
+<div class="input-block" *ngIf="true">
+  <form id="brise-form" [formGroup]="formCadastro">
+    <button class="brise-btn" (click)="print()">Print</button>
+    <div>
+      <iframe
+        *ngIf="mapVisible"
+        width="100%"
+        height="300"
+        frameborder="0"
+        style="border: 0"
+        referrerpolicy="no-referrer-when-downgrade"
+        [src]="srcMap | safe"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+    <div class="wrap-line topo">
+      <button class="brise-btn" (click)="getLocation()">Localização</button>
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="latitude" />
+        <label>Latitude: </label>
+        <span class="line"></span>
+      </div>
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="longitude" />
+        <label>Longitude: </label>
+        <span class="line"></span>
+      </div>
+    </div>
+    <div class="wrap-line">
+      <div class="brise-input">
+        <input type="date" name="text" formControlName="data" />
+        <label>Data</label>
+        <span class="line"></span>
+      </div>
+
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="nomeImovel" />
+        <label>Imóvel</label>
+        <span class="line"></span>
+      </div>
+
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="nome" />
+        <label>Nome</label>
+        <span class="line"></span>
+      </div>
+
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="cpf" />
+        <label>CPF</label>
+        <span class="line"></span>
+      </div>
+
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="rg" />
+        <label>RG</label>
+        <span class="line"></span>
+      </div>
+
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="cad" />
+        <label>CAD Único</label>
+        <span class="line"></span>
+      </div>
+
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="endereco" />
+        <label>Endereço</label>
+        <span class="line"></span>
+      </div>
+
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="bairro" />
+        <label>Bairro</label>
+        <span class="line"></span>
+      </div>
+
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="cidade" />
+        <label>Cidade</label>
+        <span class="line"></span>
+      </div>
+
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="estado" />
+        <label>Estado</label>
+        <span class="line"></span>
+      </div>
+
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="cep" />
+        <label>CEP</label>
+        <span class="line"></span>
+      </div>
+    </div>
+
+    <h3>Objetivo da avaliação:</h3>
+    <div class="wrap-column">
+      <div class="brise-radio">
+        <label>
+          <input name="radio" type="radio" checked formControlName="objetivo" />
+          <span class="radio"></span>
+          <span class="label">Reestabelecimento</span>
+        </label>
+      </div>
+      <div class="brise-radio">
+        <label>
+          <input name="radio" type="radio" />
+          <span class="radio"></span>
+          <span class="label">Reconstrução</span>
+        </label>
+      </div>
+    </div>
+
+    <h3>Imóvel:</h3>
+    <div class="wrap-column">
+      <div class="brise-radio">
+        <label>
+          <input name="radio-tipo" type="radio" checked />
+          <span class="radio"></span>
+          <span class="label">Comercial</span>
+        </label>
+      </div>
+      <div class="brise-radio">
+        <label>
+          <input name="radio-tipo" type="radio" />
+          <span class="radio"></span>
+          <span class="label">Residencial</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="wrap-line">
+      <div class="brise-input">
+        <input type="number" name="number" formControlName="pavimentos" />
+        <label>Pavimentos</label>
+        <span class="line"></span>
+      </div>
+
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="areaTerreno" />
+        <label>Área do terreno</label>
+        <span class="line"></span>
+      </div>
+
+      <div class="brise-input">
+        <input type="text" name="text" formControlName="areaEdificacao" />
+        <label>Área da edificação</label>
+        <span class="line"></span>
+      </div>
+    </div>
+
+    <h3>Imóvel:</h3>
+    <div class="wrap-column">
+      <div class="brise-radio">
+        <label>
+          <input name="radio-tipo-imovel" type="radio" checked />
+          <span class="radio"></span>
+          <span class="label">Urbano</span>
+        </label>
+      </div>
+      <div class="brise-radio">
+        <label>
+          <input name="radio-tipo-imovel" type="radio" />
+          <span class="radio"></span>
+          <span class="label">Rural</span>
+        </label>
+      </div>
+    </div>
+
+    <h3>Tipologia contrutiva:</h3>
+    <div class="wrap-column">
+      <div class="brise-radio">
+        <label>
+          <input name="radio-topologia" type="radio" checked />
+          <span class="radio"></span>
+          <span class="label">Madeira</span>
+        </label>
+      </div>
+      <div class="brise-radio">
+        <label>
+          <input name="radio-topologia" type="radio" />
+          <span class="radio"></span>
+          <span class="label">Alvenaria</span>
+        </label>
+      </div>
+      <div class="brise-radio">
+        <label>
+          <input name="radio-topologia" type="radio" />
+          <span class="radio"></span>
+          <span class="label">Misto</span>
+        </label>
+      </div>
+    </div>
+
+    <h3>Possui escritura:</h3>
+    <div class="wrap-column">
+      <div class="brise-radio">
+        <label>
+          <input name="radio-escritura" type="radio" checked />
+          <span class="radio"></span>
+          <span class="label">Sim</span>
+        </label>
+      </div>
+      <div class="brise-radio">
+        <label>
+          <input name="radio-escritura" type="radio" />
+          <span class="radio"></span>
+          <span class="label">Não</span>
+        </label>
+      </div>
+    </div>
+
+    <h3>Classificação:</h3>
+    <div class="wrap-column">
+      <div class="brise-radio">
+        <label>
+          <input name="radio-classificacao" type="radio" checked />
+          <span class="radio"></span>
+          <span class="label">Destruída</span>
+        </label>
+      </div>
+      <div class="brise-radio">
+        <label>
+          <input name="radio-classificacao" type="radio" />
+          <span class="radio"></span>
+          <span class="label">Atingida</span>
+        </label>
+      </div>
+      <div class="brise-radio">
+        <label>
+          <input name="radio-classificacao" type="radio" />
+          <span class="radio"></span>
+          <span class="label">Adjacente</span>
+        </label>
+      </div>
+      <div class="brise-radio">
+        <label>
+          <input name="radio-classificacao" type="radio" />
+          <span class="radio"></span>
+          <span class="label">Habitável</span>
+        </label>
+      </div>
+    </div>
+
+    <h3>Observações:</h3>
+
+    <div class="brise-text">
+      <textarea
+        name="msg"
+        id=""
+        cols="30"
+        rows="10"
+        formControlName="observacao"
+      ></textarea>
+      <label>Escrava aqui sua observação...</label>
+    </div>
+
+    <div class="brise-upload">
+      <label>
+        <input type="file" name="file" accept="" />
+        <span class="label">Anexar Fotos</span>
+      </label>
+    </div>
+
+    <button class="brise-btn">Salvar laudo</button>
+  </form>
+</div>
+
+<div id="laudo-download">
+  <h1>LAUDO BEM IMÓVEL - RESTABELECIMENTO / RECONSTRUÇÃO</h1>
+
+  <div class="table">
+    <div class="row">
+      <h3>Imóvel: {{ controls.nomeImovel.value }}</h3>
+    </div>
+    <div class="row">
+      <h3>Data do Relatório: {{ controls.data.value }}</h3>
+    </div>
+    <div class="row">
+      <h3>Nome do Proprietário: {{ controls.nome.value }}</h3>
+    </div>
+    <div class="inline">
+      <div class="row">
+        <h3>CPF: {{ controls.cpf.value }}</h3>
+      </div>
+      <div class="row">
+        <h3>RG: {{ controls.rg.value }}</h3>
+      </div>
+    </div>
+    <div class="row">
+      <h3>CAD Único: {{ controls.cad.value || "Não informado." }}</h3>
+    </div>
+    <div class="row">
+      <h3>Objetivo da Avaliação: {{ controls.objetivo.value }}</h3>
+    </div>
+    <div class="row">
+      <h3>Tipo do Imóvel: {{ controls.tipoImovel.value }}</h3>
+    </div>
+    <div class="inline">
+      <div class="row">
+        <h3>Número de Pavimentos: {{ controls.pavimentos.value }}</h3>
+      </div>
+      <div class="row">
+        <h3>Área do Terreno: {{ controls.areaTerreno.value }} m²</h3>
+      </div>
+    </div>
+    <div class="row">
+      <h3>Área da Edificação: {{ controls.areaEdificacao.value }} m²</h3>
+    </div>
+    <div class="row">
+      <h3>Tipologia construtiva: {{ controls.tipologia.value }}</h3>
+    </div>
+    <div class="inline">
+      <div class="row" *ngIf="controls.escritura">
+        <h3>Possui Escritura: (X) sim ( ) não</h3>
+      </div>
+      <div class="row" *ngIf="!controls.escritura">
+        <h3>Possui Escritura: ( ) sim (X) não</h3>
+      </div>
+      <div class="row" *ngIf="controls.tipoImovel">
+        <h3>Imóvel: (X) Urbano ( ) Rural</h3>
+      </div>
+      <div class="row" *ngIf="!controls.tipoImovel">
+        <h3>Imóvel: ( ) Urbano (X) Rural</h3>
+      </div>
+    </div>
+    <div class="row">
+      <h3>Endereço: {{ controls.endereco.value }}</h3>
+    </div>
+    <div class="row">
+      <h3>Bairro/Comunidade: {{ controls.bairro.value }}</h3>
+    </div>
+    <div class="inline">
+      <div class="row">
+        <h3>Cidade: {{ controls.cidade.value }}</h3>
+      </div>
+      <div class="row">
+        <h3>CEP: {{ controls.cep.value }}</h3>
+      </div>
+    </div>
+    <div class="inline">
+      <div class="row">
+        <h3>Latitude: {{ controls.latitude.value }}</h3>
+      </div>
+      <div class="row">
+        <h3>Longitude: {{ controls.longitude.value }}</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="table">
+    <div class="inline">
+      <div class="row"><h3>CLASSIFICAÇÃO DO IMÓVEL:</h3></div>
+      <div class="row destruida">
+        <h3>DESTRUIDA: edificação extinta ou condenada;</h3>
+      </div>
+    </div>
+    <div class="inline">
+      <div class="row classificacao"><h3>*</h3></div>
+      <div class="row classificacao">
+        <h3>
+          PANORAMA GERAL: <span> {{ controls.observacao.value }}</span>
+          <!-- <span>
+            Imóvel sofreu danos severos com a enchente, teve sua estrutura
+            afetada, conforme mostra as rachaduras encontradas, exposição da
+            armadura da laje, sendo assim, condenado, e inábitável para moradia.
+          </span> -->
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+.map-overlay {
+  max-width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  position: relative;
+  border-radius: 2px;
+}
+
+#map {
+  max-width: 550px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.topo {
+  button {
+    width: 100%;
+  }
+}
+
+#laudo-download {
+  h1 {
+    text-align: center;
+  }
+  .table {
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 968px;
+    border-bottom: 1px solid;
+
+    .inline {
+      display: flex;
+
+      .row {
+        border-right: none;
+        width: 100%;
+
+        &.classificacao {
+          min-height: 35px;
+          height: auto;
+          &:first-child {
+            width: 30px;
+          }
+          &:last-child {
+            width: 100%;
+          }
+        }
+
+        &:last-child {
+          border-right: 1px solid;
+        }
+      }
+    }
+
+    .row {
+      border: 1px solid;
+      border-bottom: none;
+      height: 35px;
+      padding: 0 10px;
+
+      h3 {
+        font-weight: 500;
+        margin: 0;
+
+        span {
+          font-weight: normal;
+        }
+      }
+
+      &.destruida {
+        background-color: red;
+      }
+    }
+  }
+}
